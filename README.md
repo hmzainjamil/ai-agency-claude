@@ -14,6 +14,38 @@
 
 ---
 
+## CONCEPTS
+
+| Concept | Description |
+|---|---|
+| **Agency** | Core agency capability |
+| **Claude** | Core claude capability |
+| **Automation** | Core automation capability |
+| **Digital** | Core digital capability |
+| **Marketing** | Core marketing capability |
+| **Outreach** | Core outreach capability |
+| **Client** | Core client capability |
+| **Os** | Core os capability |
+
+---
+
+## 🔥 Hot Commands
+
+```bash
+# Activate
+claude --skill ai-agency-claude 'task'
+
+# Main workflow
+claude 'agency automation'
+```
+
+## ■ tip
+> Mention **agency** in your prompt to auto-activate this skill.
+
+---
+
+
+
 
 ---
 
