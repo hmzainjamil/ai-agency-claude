@@ -3,16 +3,68 @@
 </p>
 
 <p align="center">
-  <a href="#installation"><img src="https://img.shields.io/badge/install-one--liner-0066cc?style=for-the-badge" alt="Install"></a>
-  <a href="https://github.com/zubair-trabzada/ai-agency-claude/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-d4a843?style=for-the-badge" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/skills-8-0066cc?style=for-the-badge" alt="8 Skills">
-  <img src="https://img.shields.io/badge/agents-5-0066cc?style=for-the-badge" alt="5 Agents">
-  <img src="https://img.shields.io/badge/teams-5-0066cc?style=for-the-badge" alt="5 Teams">
-  <img src="https://img.shields.io/badge/reports-PDF-d4a843?style=for-the-badge" alt="PDF Reports">
-  <img src="https://img.shields.io/badge/claude--code-skills-1a1a2e?style=for-the-badge" alt="Claude Code Skills">
+  <a href="#installation"><img src="https://img.shields.io/badge/install-one--liner-0066cc?style=flat" alt="Install"></a>
+  <a href="https://github.com/zubair-trabzada/ai-agency-claude/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-d4a843?style=flat" alt="MIT License"></a>
+  <img src="https://img.shields.io/badge/skills-8-0066cc?style=flat" alt="8 Skills">
+  <img src="https://img.shields.io/badge/agents-5-0066cc?style=flat" alt="5 Agents">
+  <img src="https://img.shields.io/badge/teams-5-0066cc?style=flat" alt="5 Teams">
+  <img src="https://img.shields.io/badge/reports-PDF-d4a843?style=flat" alt="PDF Reports">
+  <img src="https://img.shields.io/badge/claude--code-skills-1a1a2e?style=flat" alt="Claude Code Skills">
 </p>
 
 ---
+
+
+---
+
+## CONCEPTS
+
+| Concept | Description |
+|---|---|
+| **Agency** | Core concept — primary building block of ai agency claude |
+| **Ai** | Execution primitive handling AI operations |
+| **Claude** | Integration layer for claude connectivity |
+| **Client** | Configuration and routing for client behavior |
+| **Claude Code** | Anthropic CLI — agentic coding and task execution |
+| **MCP** | Model Context Protocol — tool exposure standard |
+| **Skill** | Self-contained Claude Code capability module |
+| **Tier-0** | Free model routing: Groq → Ollama → DeepSeek |
+| **Context Window** | Token budget per session — managed via compression |
+| **Async Agent** | Background task agent — non-blocking parallel execution |
+
+---
+
+## 🔥 Hot Commands
+
+```bash
+# Clone and explore
+gh repo clone hmzainjamil/ai-agency-claude
+cd ai-agency-claude
+
+# Load as Claude Code skill
+cp -r . ~/.claude/skills/ai-agency-claude/
+
+# Run via MAE pipeline
+mae run "ai agency claude - primary workflow"
+
+# Quick invoke via Claude
+claude -p "using agency capabilities: run main workflow"
+```
+
+## ■ tip
+> **Route sub-tasks to Tier-0 first** (Groq/Ollama) — saves Claude quota for synthesis only. Use `mae run` to auto-decompose complex tasks.
+
+---
+
+## ☠️ STARTUPS / BUSINESSES
+
+- **Digital agencies** — deploy as client delivery multiplier, 10× throughput
+- **SaaS founders** — integrate into existing Claude Code stack, zero infra overhead
+- **AI engineers** — fork and extend with custom domain logic
+- **Freelancers** — use as billable-hours accelerator for agency + AI work
+
+---
+
 
 ## One-Command Install
 
@@ -235,10 +287,18 @@ MIT License. See [LICENSE](LICENSE) for details.
   <b>Learn How to Sell Claude Code Services to Real Businesses</b>
   <br><br>
   <a href="https://skool.com/aiworkshop">
-    <img src="https://img.shields.io/badge/AI_Workshop-Join_the_Community-d4a843?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0tMiAxNWwtNS01IDEuNDEtMS40MUwxMCAxNC4xN2w3LjU5LTcuNTlMMTkgOGwtOSA5eiIvPjwvc3ZnPg==" alt="AI Workshop">
+    <img src="https://img.shields.io/badge/AI_Workshop-Join_the_Community-d4a843?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0tMiAxNWwtNS01IDEuNDEtMS40MUwxMCAxNC4xN2w3LjU5LTcuNTlMMTkgOGwtOSA5eiIvPjwvc3ZnPg==" alt="AI Workshop">
   </a>
   <br><br>
   Get the AI Reputation Manager, step-by-step setup guides, sales playbooks, and the full agency system.
   <br>
   <a href="https://skool.com/aiworkshop">https://skool.com/aiworkshop</a>
 </p>
+
+
+---
+
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=hmzainjamil/ai-agency-claude&type=Date)](https://star-history.com/#hmzainjamil/ai-agency-claude&Date)
+
