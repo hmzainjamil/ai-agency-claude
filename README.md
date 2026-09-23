@@ -1,5 +1,9 @@
 # ai-agency-claude
 
+<!-- HMZ PORTFOLIO STANDARD -->
+> Portfolio status: active · Visibility: public · Source of truth: current repository source.
+<!-- END HMZ PORTFOLIO STANDARD -->
+
 > **Run a digital agency with 9 Claude skills** - Drop-in Claude Code skill pack that turns any laptop into a full-service AI agency - onboarding, proposals, audits, pipeline, reporting - no SaaS, no team.
 
 <p align="center">
