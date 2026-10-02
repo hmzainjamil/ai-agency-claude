@@ -1,157 +1,92 @@
-# ai-agency-claude
+# AI Agency Claude
 
-> **Run a digital agency with 9 Claude skills** - Drop-in Claude Code skill pack that turns any laptop into a full-service AI agency - onboarding, proposals, audits, pipeline, reporting - no SaaS, no team.
+A Claude Code skill pack for agency workflows: client onboarding, proposals, pipeline tracking, quick assessments, status checks, and PDF report generation. The repository contains Markdown instructions plus a Python PDF generator and shell install scripts. The skills guide Claude Code; they are not a hosted agency service or standalone autonomous runtime.
 
-<p align="center"><a href="https://github.com/hmzainjamil/ai-agency-claude">Repository</a> · <a href="https://github.com/hmzainjamil/ai-agency-claude/commits/main">Commits</a> · <a href="https://github.com/hmzainjamil/ai-agency-claude/issues">Issues</a></p>
-<p align="center"><img alt="Documentation" src="https://img.shields.io/badge/documentation-deep%20editorial-lightgrey"> <img alt="Lifecycle" src="https://img.shields.io/badge/lifecycle-active-success"></p>
+## What is included
 
-<!-- HMZ DEEP README v1 -->
-
-## At a glance
-
-| Field | Current state |
+| Area | Contents |
 |---|---|
-| Repository | ai-agency-claude |
-| Visibility | Public |
-| Lifecycle | Active |
-| Evidence basis | Current repository documentation and source-visible material |
+| Orchestration | `agency/SKILL.md` |
+| Workflow skills | Client, onboarding, pipeline, proposals, quick assessment, reporting, stack and status under `skills/` |
+| Agent instructions | Marketing, reputation, GEO, legal and sales roles under `agents/` |
+| PDF output | `scripts/generate_agency_pdf.py` |
+| Setup | `install.sh`, `uninstall.sh`, and `requirements.txt` |
 
-## Why this exists
+Some instructions call for web access, subagents, or other tools. Availability and behavior depend on the Claude Code environment and its configured tools. Review each skill before use. Treat generated scores, findings, legal topics, prices and business projections as drafts requiring evidence and qualified human review.
 
-**Run a digital agency with 9 Claude skills** - Drop-in Claude Code skill pack that turns any laptop into a full-service AI agency - onboarding, proposals, audits, pipeline, reporting - no SaaS, no team.
+## Requirements
 
-The README documents the agent-agency scope while distinguishing orchestrated workflows from claims of autonomous business outcomes.
+- Claude Code for the Markdown skills and agent instructions.
+- Bash and Git for the installer.
+- Python 3 and ReportLab for PDF generation. The declared dependency is in `requirements.txt`.
 
-## CONCEPTS
-
-| Concept | Location | Description |
-|---|---|---|
-| **Agency master skill** | `agency/SKILL.md` | Top-level agency orchestrator - [Source](https://github.com/hmzainjamil/ai-agency-claude/blob/main/agency/SKILL.md) |
-| **Client skill** | `skills/agency-client/SKILL.md` | Client lifecycle management - [Source](https://github.com/hmzainjamil/ai-agency-claude/blob/main/skills/agency-client/SKILL.md) |
-| **Onboard skill** | `skills/agency-onboard/SKILL.md` | Kickoff brief generator - [Source](https://github.com/hmzainjamil/ai-agency-claude/blob/main/skills/agency-onboard/SKILL.md) |
-| **Pipeline skill** | `skills/agency-pipeline/SKILL.md` | Lead -> close pipeline ops - [Source](https://github.com/hmzainjamil/ai-agency-claude/blob/main/skills/agency-pipeline/SKILL.md) |
-| **Propose skill** | `skills/agency-propose/SKILL.md` | SOW + rate-card generator - [Source](https://github.com/hmzainjamil/ai-agency-claude/blob/main/skills/agency-propose/SKILL.md) |
-| **Report PDF skill** | `skills/agency-report-pdf/SKILL.md` | Branded 11-page client PDF - [Source](https://github.com/hmzainjamil/ai-agency-claude/blob/main/skills/agency-report-pdf/SKILL.md) |
-| **PDF generator** | `scripts/generate_agency_pdf.py` | ReportLab build script - [Source](https://github.com/hmzainjamil/ai-agency-claude/blob/main/scripts/generate_agency_pdf.py) |
-| **Sales agent** | `agents/agency-sales.md` | Outbound + close specialist - [Source](https://github.com/hmzainjamil/ai-agency-claude/blob/main/agents/agency-sales.md) |
-| **Legal agent** | `agents/agency-legal.md` | Contract + terms specialist - [Source](https://github.com/hmzainjamil/ai-agency-claude/blob/main/agents/agency-legal.md) |
-| **Installer** | `install.sh` | Symlinks skills into ~/.claude - [Source](https://github.com/hmzainjamil/ai-agency-claude/blob/main/install.sh) |
-
-## HOW IT WORKS
-
-```
-+---------------------------------------------------------+
-|                       INPUT                             |
-|   9 - client, onboard, propose, pipeline, quick, rep|
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  ORIENT / PARSE                         |
-|   - Validate inputs                                     |
-|   - Load skill / agent / tool definitions               |
-|   - Resolve config + secrets from .env                  |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  PLAN (Claude Sonnet)                   |
-|   - Decompose goal into ordered subtasks                |
-|   - Pick model per task (Sonnet / Haiku / Tier-0)       |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  EXECUTE (parallel)                     |
-|   - Spawn sub-agents / call tools                       |
-|   - Stream tokens, persist artifacts                    |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  VERIFY                                 |
-|   - Lint / typecheck / visual diff / QA agent           |
-|   - On failure -> re-prompt with error context          |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  SHIP                                   |
-|   - Write to disk . commit . PR . upload                |
-+---------------------------------------------------------+
-```
+The repository does not declare an API-key configuration contract. The installer checks Claude Code and Python availability; it does not configure a model API key.
 
 ## Install
+
+Review `install.sh` before running. It copies the orchestrator and scripts into `$HOME/.claude/skills/agency`, copies the listed skills into `$HOME/.claude/skills`, and copies agent files into `$HOME/.claude/agents`. Existing files at those paths may be overwritten. It also checks for related tool suites and prints suggested installer commands; it does not install those suites itself.
 
 ```bash
 git clone https://github.com/hmzainjamil/ai-agency-claude.git
 cd ai-agency-claude
-
-# Per-repo install (try in order):
-bash install.sh 2>/dev/null || \
-npm install 2>/dev/null || \
-bun install 2>/dev/null || \
-pip install -r requirements.txt 2>/dev/null || true
+bash install.sh
 ```
 
-Environment:
+The installer currently points its remote-clone path and related suite links at the original `zubair-trabzada` namespace. For a remote install, verify those URLs before running.
+
+## Use
+
+After installation, start a Claude Code session and invoke the installed skills by their names, following the invocation documented in each skill file. Examples defined in the repository include:
+
+```text
+/agency onboard <url>
+/agency quick <url>
+```
+
+These workflows may retrieve and process public business-site information when the configured Claude Code tools support it. Do not submit confidential client data unless your organization has approved the destination and handling. Verify findings against cited evidence before sharing externally.
+
+Generate a demo PDF:
 
 ```bash
-cp .env.example .env  # if present
-# fill ANTHROPIC_API_KEY at minimum
+python3 scripts/generate_agency_pdf.py --demo
 ```
 
-## Usage
+The script writes `AGENCY-REPORT.pdf` in the current directory. With a JSON input path, it reads that file and writes the report to the optional second path. See the script for the expected data structure.
+
+## Uninstall
+
+Review `uninstall.sh` first. It recursively deletes the named agency skill directories under `$HOME/.claude/skills` and removes five matching agent files under `$HOME/.claude/agents`. Back up local edits and confirm those paths contain only this installation before running:
 
 ```bash
-# Claude Code skill packs:
-/skill-name "your goal"
-
-# CLI / scripts:
-python scripts/<script>.py --input ./input --output ./output
-
-# TypeScript projects:
-bun run dev    # or npm run dev
+bash uninstall.sh
 ```
 
-### Configuration knobs
+## Scope and limitations
 
-| Key | Default | Description |
-|---|---|---|
-| `ANTHROPIC_API_KEY` | - (required) | Claude API key |
-| `MODEL` | `claude-sonnet-4-7` | Default LLM |
-| `MODEL_FALLBACK` | `claude-haiku-4` | Cheaper fallback |
-| `MAX_TOKENS` | `8192` | Per-call ceiling |
-| `TEMPERATURE` | `0.2` | Determinism dial |
-| `LOG_LEVEL` | `info` | debug / info / warn / error |
-| `OUT_DIR` | `./out` | Where artifacts land |
-| `CACHE_DIR` | `.cache` | Prompt cache root |
-| `PARALLELISM` | `4` | Sub-agent concurrency |
-| `RETRY_MAX` | `3` | Per-call retry budget |
-| `TIMEOUT_S` | `120` | Per-call timeout |
-| `DRY_RUN` | `false` | Plan-only, no side effects |
+- This repository provides prompts and scripts, not an independently running multi-agent service.
+- The installer copies files; it does not create a symlink.
+- Audit scores, legal observations, recommendations, pricing, and forecast examples are not verified outcomes or professional advice.
+- The demo data in the PDF generator is illustrative and should not be presented as a real client assessment.
+- Tool names and invocation behavior in skill instructions can vary by host environment.
+- No test suite or supported-platform matrix is declared in the repository.
 
-### Case 3 - DTC brand, ad creative testing
+## Repository map
 
-- Before: $2K/month UGC creator retainer, 4 ads/month.
-- After: 30+ ad variants/week via Arcads + Claude, A/B-tested.
-- Result: 3x creative velocity, 41% lower CAC after 6 weeks.
+- [Agency orchestrator](agency/SKILL.md)
+- [Skills](skills/)
+- [Agent instructions](agents/)
+- [PDF generator](scripts/generate_agency_pdf.py)
+- [Security notes](SECURITY.md)
+- [License](LICENSE)
 
-## Security
+## Contributing
 
-- Never commit API keys. `.env` is in `.gitignore` by default.
-- Use [git-secret](https://git-secret.io/) or 1Password CLI for team secret sharing.
-- Review the QA / safety layer for any tool that writes to disk or runs shells (see `mac_safety.py` style guards).
-- Vulnerability reports: open a private GitHub Security Advisory.
+Open an issue to report a defect or propose a change. Include the affected file, expected behavior, and a safe reproduction using synthetic data. Do not include API keys, private client data, or generated reports containing personal information.
 
-## Limitations
+## Security and privacy
 
-- Agent output quality depends on prompts, tools, models, and inputs.
-- Autonomous workflows need monitoring and explicit stop conditions.
-- Business outcomes require external measurement.
+See [SECURITY.md](SECURITY.md) for installation, data-handling, and reporting guidance.
 
-## Related
+## License
 
-- [Claude Code](https://docs.claude.com/en/docs/claude-code) - official docs
-- [Anthropic Console](https://console.anthropic.com) - API keys + billing
-- [Crawlee](https://crawlee.dev) - web scraping framework
-- [hmz-claude-code-best-practice](https://github.com/hmzainjamil/hmz-claude-code-best-practice) - sister repo
-
-## Maintainer
-
-[hmzainjamil](https://github.com/hmzainjamil)
+MIT. See [LICENSE](LICENSE).
